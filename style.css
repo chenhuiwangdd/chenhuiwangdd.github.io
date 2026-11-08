@@ -8,7 +8,8 @@
   --accent: #38424a;
   --hero-bg: #14120f;
   --hero-line: #f2ece0;
-  --sidebar-w: 340px;
+  --sidebar-w: clamp(240px, 24vw, 340px);   /* narrows smoothly on smaller laptops */
+  --content-max: 1120px;                       /* content grows with the window up to this width */
 }
 
 * { box-sizing: border-box; }
@@ -45,7 +46,7 @@ a:focus-visible, button:focus-visible {
   position: fixed;
   top: 0; left: 0; bottom: 0;
   width: var(--sidebar-w);
-  padding: 64px 40px 40px 64px;
+  padding: 64px clamp(24px, 3vw, 40px) 40px clamp(32px, 4.5vw, 64px);
   background: var(--bg);
   display: flex;
   flex-direction: column;
@@ -105,8 +106,8 @@ nav.primary a:hover { color: var(--accent); }
 }
 
 .pad {
-  max-width: 640px;
-  padding: 88px 56px;
+  max-width: var(--content-max);
+  padding: 88px clamp(32px, 4vw, 56px);
 }
 
 .hero {
@@ -145,7 +146,7 @@ h1 {
   max-width: 17ch;
 }
 
-.about-pad { padding-top: 120px; max-width: 880px; }
+.about-pad { padding-top: 120px; }
 .about-title {
   font-size: clamp(24px, 3vw, 28px);
   font-weight: 500;
@@ -158,8 +159,8 @@ h1 {
 }
 .about-grid {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 48px;
+  grid-template-columns: clamp(200px, 24vw, 320px) 1fr;
+  gap: clamp(32px, 4vw, 56px);
   align-items: start;
 }
 .about-photo {
@@ -168,7 +169,7 @@ h1 {
   background: #f1f0ea;
   border: 1px solid var(--line);
 }
-.about-text p { line-height: 1.75; max-width: 54ch; }
+.about-text p { line-height: 1.75; max-width: 72ch; }
 
 @media (max-width: 640px) {
   .about-grid { grid-template-columns: 1fr; }
@@ -212,7 +213,7 @@ p { margin: 0 0 18px; max-width: 60ch; }
   gap: 20px;
 }
 .entry .year { font-size: 14px; color: var(--ink-soft); padding-top: 3px; }
-.entry .body p { margin-bottom: 8px; }
+.entry .body p { margin-bottom: 8px; max-width: none; }
 .entry .venue { font-size: 14px; color: var(--ink-soft); font-style: italic; }
 
 .entry .body p.summary { font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin-top: 10px; }
