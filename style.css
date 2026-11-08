@@ -215,7 +215,28 @@ p { margin: 0 0 18px; max-width: 60ch; }
 .entry .body p { margin-bottom: 8px; }
 .entry .venue { font-size: 14px; color: var(--ink-soft); font-style: italic; }
 
+.entry .body p.summary { font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin-top: 10px; }
+.entry .body p.links { font-size: 14px; margin-top: 10px; }
+.entry .links .sep { color: var(--ink-soft); margin: 0 4px; }
+.entry .links a { white-space: nowrap; }
+.entry .body p.tag {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.group-label {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 36px 0 12px;
+}
+
 .contact-list .entry { grid-template-columns: 110px 1fr; }
+.cv-list .entry { grid-template-columns: 120px 1fr; }
 
 .keywords { color: var(--ink-soft); max-width: 60ch; }
 
@@ -242,4 +263,5 @@ p { margin: 0 0 18px; max-width: 60ch; }
   .hero { height: 62vh; }
   .entry { grid-template-columns: 1fr; gap: 6px; }
   .contact-list .entry { grid-template-columns: 1fr; }
+  .cv-list .entry { grid-template-columns: 1fr; }
 }
